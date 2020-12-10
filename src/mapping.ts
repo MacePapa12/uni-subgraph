@@ -1,5 +1,6 @@
 import { Burn, Mint } from '../generated/UniswapV2Pair/UniswapV2Pair';
-import { User } from '../generated/schema';
+import { totalSupply } from '../generated/DebaseToken/DebaseToken';
+import { User, Token } from '../generated/schema';
 import { BigInt } from '@graphprotocol/graph-ts';
 
 export function handleMint(event: Mint): void {
@@ -36,6 +37,13 @@ export function handleBurn(event: Burn): void {
 
 	user.transactionCount = user.transactionCount + 1;
 	user.save();
+}
+
+export function handleCircSupply(call: totalSupply): void {
+	let id = call.transaction.hash.toHex();
+	let token = new Token(id);
+	token.totalSupply = call.params.amount0;
+	token.save();
 }
 
 function newUser(id: string, address: string): User {
