@@ -42,6 +42,6 @@ dataSources:
           - name: DebaseToken
             file: ./abis/DebaseToken.json
         callHandlers:
-          - function: getCircSupply(indexed address, uint256)
+          - function: totalSupply(indexed address, uint256)
             handler: handleCircSupply
         file: ./src/mapping.ts
