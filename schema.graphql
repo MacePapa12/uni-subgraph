@@ -9,7 +9,5 @@ type User @entity {
 type Token @entity {
 	id: ID!
 	address: String!
-	price: BigInt!
-	marketCap: BigInt!
-	totalSupply: Int!
+	totalSupply: BigInt!
 }
