@@ -37,6 +37,8 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
+      entities:
+        - Token
       abis:
         - name: DebaseToken
           file: ./abis/DebaseToken.json
