@@ -26,3 +26,19 @@ dataSources:
         - event: Mint(indexed address,uint256,uint256)
           handler: handleMint
       file: ./src/mapping.ts
+
+- kind: ethereum/contract
+    name: DebaseToken
+    network: mainnet
+    source:
+      address: "0x9248c485b0b80f76da451f167a8db30f33c70907"
+      abi: DebaseToken
+      startBlock: 11110000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      abis:
+        - name: DebaseToken
+          file: ./abis/DebaseToken.json
+      file: ./src/mapping.ts
